@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calculate () {
+            var number = parseInt(document.getElementById("number").value);
+            var sumOdd = 0, sumEven = 0;
+            var countOdd = 0, countEven = 0;
+            for (i = number; i > 0; i--) {
+                if (i % 2 != 0) {
+                    sumOdd = sumOdd + i;
+                    countOdd++;
+                }
+                else {
+                    sumEven = sumEven + i;
+                    countEven++;
+                }
+            }
+            document.getElementById("sum-odd").value = sumOdd;
+            document.getElementById("sum-even").value = sumEven;
+            
+            var avgOdd = sumOdd / countOdd;
+            var avgEven = sumEven / countEven;
+            if (sumOdd == 0 || sumEven == 0) {
+                avgOdd = 0;
+                avgEven = 0;
+            }
+            document.getElementById("avg-odd").value = avgOdd;
+            document.getElementById("avg-even").value = avgEven;
+        }
+    </script>
+</head>
+<body>
+    <h1>PROGRAM TO CALCULATE SUM & AVERAGE</h1>
+
+    <input type="number" placeholder="Enter a number" id="number">
+    <button onclick="calculate()">Calculate</button>
+
+    <hr style="margin: 20px 0;">
+
+    <table>
+        <thead>
+            <th></th>
+            <th>ODD NUMBERS</th>
+            <th>EVEN NUMBERS</th>
+        </thead>
+        <tr>
+            <td>SUM</td>
+            <td><input type="text" id="sum-odd" style="text-align: right;" disabled></td>
+            <td><input type="text" id="sum-even" style="text-align: right;" disabled></td>
+        </tr>
+        <tr>
+            <td>AVERAGE</td>
+            <td><input type="text" id="avg-odd" style="text-align: right;" disabled></td>
+            <td><input type="text" id="avg-even" style="text-align: right;" disabled></td>
+        </tr>
+    </table>
+</body>
+</html>
