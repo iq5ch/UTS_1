@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function atm () {
+            var amount = document.getElementById("amount").value;
+            const nominal = [100000, 50000, 20000];
+            var n = [];
+
+            for (i = 0; i < nominal.length; i++) {
+                var note = parseInt(amount / nominal[i]);
+                n.push(note);
+                amount = amount % nominal[i];
+            }
+
+            if (amount != 0) {
+                window.alert("Maaf, nominal tersebut tidak dapat dikeluarkan oleh ATM.");
+            }
+            else {
+                window.alert("Nominal Uang yang akan Anda Terima:" + 
+                            "\nSeratus Ribu: " + n[0] +
+                            "\nLima Puluh Ribu: " + n[1] +
+                            "\nDua Puluh Ribu: " + n[2]);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>PROGRAM IMPLEMENTASI ATM</h1>
+
+    <input type="number" id="amount" placeholder="Masukkan Nominal Uang">
+    <button onclick="atm()">Proses Transaksi</button>
+
+    <hr style="margin: 20px 0;">
+</body>
+</html>
